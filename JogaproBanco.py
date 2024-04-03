@@ -41,11 +41,11 @@ result_queue = queue.Queue()
 ##################################################################################################################################################
 
 url = 'https://sipni.datasus.gov.br/si-pni-web/faces/relatorio/consolidado/dosesAplicadasCampanhaPolioSarampo.jsf'
+from selenium.webdriver.firefox.options import Options
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
-
-option = Options()
-option.headless = False
-driver = webdriver.Firefox(options=option)
 
 driver.get(url)
 

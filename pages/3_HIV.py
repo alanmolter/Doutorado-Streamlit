@@ -33,6 +33,10 @@ driver = webdriver.Firefox(options=options)
 from selenium import webdriver
 from selenium.webdriver.firefox.options import Options
 from selenium.webdriver.firefox.service import Service
+from selenium.webdriver.firefox.options import Options
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
 options = Options()
 service = Service(log_path='geckodriver.log')

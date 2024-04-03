@@ -236,7 +236,8 @@ with st.spinner('Carregando Dados...'):
             # Adicionar um filtro na sidebar para escolher um ano
         st.sidebar.header("Filtros")
         # Os anos são obtidos diretamente do DataFrame, assumindo que as colunas estão nomeadas pelos anos
-        anos = [col for col in data.columns if col.isnumeric()]  # Lista todos os anos presentes no DataFrame
+        anos = [col for col in data.columns if not col.isnumeric()]
+      # Lista todos os anos presentes no DataFrame
         anos.insert(0, 'Todos os anos')  # Adiciona uma opção para mostrar todos os anos
         ano_escolhido = st.sidebar.selectbox('Escolha um ano', anos, index=0)  # Define "Todos os anos" como o valor padrão
 

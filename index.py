@@ -24,13 +24,24 @@ import streamlit as st
 import numpy as np
 import plotly.express as px
 from streamlit_plotly_events import plotly_events
+from selenium.webdriver.firefox.options import Options
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+
+options = Options()
+service = Service(log_path='geckodriver.log')
+driver = webdriver.Firefox(service=service, options=options)
 
 
 url = 'http://tabnet.datasus.gov.br/cgi/tabcgi.exe?sinannet/cnv/hepabr.def'
 
 option = Options()
-option.headless = False
+option.headless = True
 driver = webdriver.Firefox(options=option)
 
 driver.get(url)

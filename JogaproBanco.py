@@ -35,17 +35,26 @@ options = Options()
 service = Service(log_path='geckodriver.log')
 driver = webdriver.Firefox(service=service, options=options)
 
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+
+options = Options()
+service = Service(log_path='geckodriver.log')
+driver = webdriver.Firefox(service=service, options=options)
+
+
 
 result_queue = queue.Queue()
 
 ##################################################################################################################################################
 
 url = 'https://sipni.datasus.gov.br/si-pni-web/faces/relatorio/consolidado/dosesAplicadasCampanhaPolioSarampo.jsf'
+from selenium.webdriver.firefox.options import Options
+options = Options()
+options.headless = True
+driver = webdriver.Firefox(options=options)
 
-
-option = Options()
-option.headless = False
-driver = webdriver.Firefox(options=option)
 
 driver.get(url)
 
@@ -168,7 +177,7 @@ def scrape_website_1(result_queue):
         url = 'https://www2.aids.gov.br/cgi/deftohtm.exe?tabnet/br.def'
 
         option = Options()
-        option.headless = False
+        option.headless = True
         driver = webdriver.Firefox(options=option)
 
         driver.get(url)
@@ -272,7 +281,7 @@ def scrape_website_2(result_queue):
         url = 'http://www2.aids.gov.br/cgi/tabcgi.exe?tabnet/br.def'
 
         option = Options()
-        option.headless = False
+        option.headless = True
         driver = webdriver.Firefox(options=option)
 
         driver.get(url)

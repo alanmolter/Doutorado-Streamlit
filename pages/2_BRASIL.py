@@ -3,6 +3,21 @@ import folium
 from streamlit_folium import folium_static
 import geopandas as gpd
 
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+
+options = Options()
+options.add_argument("--headless")
+driver = webdriver.Firefox(options=options)
+
+from selenium import webdriver
+from selenium.webdriver.firefox.options import Options
+from selenium.webdriver.firefox.service import Service
+
+options = Options()
+service = Service(log_path='geckodriver.log')
+driver = webdriver.Firefox(service=service, options=options)
+
 # Carregando os dados geográficos dos estados do Brasil
 # Substitua 'path/to/brazil_geojson.json' pelo caminho do seu arquivo GeoJSON
 geo_data = gpd.read_file('./brazil_geo.json')

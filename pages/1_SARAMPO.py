@@ -64,6 +64,22 @@ with st.spinner('Carregando Dados...'):
     data_load_state.text("Done!")
 
 
+    from selenium import webdriver
+    from selenium.webdriver.firefox.options import Options
+
+    options = Options()
+    options.add_argument("--headless")
+    driver = webdriver.Firefox(options=options)
+
+    from selenium import webdriver
+    from selenium.webdriver.firefox.options import Options
+    from selenium.webdriver.firefox.service import Service
+
+    options = Options()
+    service = Service(log_path='geckodriver.log')
+    driver = webdriver.Firefox(service=service, options=options)
+
+
 
 
     ##################################################################################################################################################
